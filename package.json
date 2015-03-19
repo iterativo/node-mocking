@@ -19,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/iterativo/nodemocking/issues"
   },
-  "homepage": "https://github.com/iterativo/nodemocking"
+  "homepage": "https://github.com/iterativo/nodemocking",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "sandboxed-module": "^2.0.0",
+    "should": "^5.2.0"
+  },
+  "dependencies": {
+    "gulp-shell": "^0.4.0"
+  }
 }
