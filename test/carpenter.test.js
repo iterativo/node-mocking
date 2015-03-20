@@ -12,8 +12,11 @@ describe("A carpenter", function() {
     	});
 
         it("should be able to make a table", function() {
-        	carpenter.makeTable();
+        	var table = carpenter.makeTable();
+
         	electricSaw.cut.calledOnce.should.be.true;
+        	electricSaw.cut.calledWith({}).should.be.true;
+        	table.finished.should.be.true;
         });
     });
 });
