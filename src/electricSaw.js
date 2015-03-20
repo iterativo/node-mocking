@@ -1,5 +1,7 @@
-function cut(){
-	// doing the cutting
+function cut(wood){
+	// doing the cutting on wood
+	wood.wasCut = true;
+	return wood;
 }
 
 module.exports = {
