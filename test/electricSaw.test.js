@@ -7,7 +7,7 @@ describe("The electric saw", function() {
 	var electricSaw = require("./../src/electricSaw"),
 		errorCallback;
 
-	before(function() {
+	beforeEach(function() {
 		errorCallback = sinon.spy();
 	});
 
