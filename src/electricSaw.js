@@ -1,6 +1,7 @@
-module.exports = {
-	cut: function(){
-		console.log("cut called");
+function cut(){
+	// doing the cutting
+}
 
-	}
+module.exports = {
+	cut: cut
 };
