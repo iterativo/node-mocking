@@ -1,11 +1,11 @@
-function cut(errorCallback, wood){
+function cut(wood, callback){
 	if (!wood){
-		errorCallback("Kaboom");
+		callback("Kaboom");
 	} else {
 		// doing the cutting on wood
 		wood.wasCut = true;
+		callback(void 0, wood);
 	}
-	return wood;
 }
 
 module.exports = {

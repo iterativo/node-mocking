@@ -1,22 +1,17 @@
 var electricSaw = require("./electricSaw"),
 	table = {
 		wood: {}
-	},
-	err = void 0;
+	};
 
-function makeTable() {
-    electricSaw.cut(electricSawErrorCallback, table.wood);
-    
-    if (err)
-		return "No table for you!";
-
-    table.finished = true;
-    return table;
-}
-
-function electricSawErrorCallback(mssg){
-	// handle error
-	err = true;
+function makeTable(callback) {
+	electricSaw.cut(table.wood, function(err, wood) {
+		if (!!err || !wood || !wood.cut) {
+			callback("No table for you!");
+		} else {
+			table.finished = true;
+			callback(void 0, table);
+		}
+	});
 }
 
 module.exports = {

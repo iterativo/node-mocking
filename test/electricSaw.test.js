@@ -5,22 +5,24 @@ var should = require("should"),
 
 describe("The electric saw", function() {
 	var electricSaw = require("./../src/electricSaw"),
-		errorCallback;
+		callback;
 
 	beforeEach(function() {
-		errorCallback = sinon.spy();
+		callback = sinon.spy();
 	});
 
-	it("should cut wood", function() {
+	it("should cut wood", function(done) {
 		var wood = {};
-		electricSaw.cut(errorCallback, wood);
-		errorCallback.called.should.be.false;
+		electricSaw.cut(wood, callback);
+		callback.calledWithMatch(void 0, wood).should.be.true;
 		wood.wasCut.should.be.true;
+		done();
 	});
 
-	it("should error out when unable to cut wood", function(){
+	it("should error out when unable to cut wood", function(done){
 		var wood = void 0;
-		electricSaw.cut(errorCallback, wood);
-		errorCallback.calledWith("Kaboom").should.be.true;
+		electricSaw.cut(wood, callback);
+		callback.calledWithMatch("Kaboom").should.be.true;
+		done();
 	});
 });
