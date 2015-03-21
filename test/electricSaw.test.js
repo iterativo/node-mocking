@@ -11,18 +11,16 @@ describe("The electric saw", function() {
 		callback = sinon.spy();
 	});
 
-	it("should cut wood", function(done) {
+	it("should cut wood", function() {
 		var wood = {};
 		electricSaw.cut(wood, callback);
 		callback.calledWithMatch(void 0, wood).should.be.true;
 		wood.wasCut.should.be.true;
-		done();
 	});
 
-	it("should error out when unable to cut wood", function(done){
+	it("should error out when unable to cut wood", function(){
 		var wood = void 0;
 		electricSaw.cut(wood, callback);
 		callback.calledWithMatch("Kaboom").should.be.true;
-		done();
 	});
 });
